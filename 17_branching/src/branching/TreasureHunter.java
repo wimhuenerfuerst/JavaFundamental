@@ -20,7 +20,7 @@ public class TreasureHunter {
 		int strat = scanner.nextInt();
 
 		if (1 == strat) {
-			for (int i = 0; i < dim; i++) {
+			loop: for (int i = 0; i < dim; i++) {
 				for (int j = 0; j < dim; j++) {
 					for (int k = 0; k < dim; k++) {
 						int v = field[i][j][k];
@@ -30,7 +30,7 @@ public class TreasureHunter {
 							System.out.println("y " + j);
 							System.out.println("z " + k);
 
-							break;
+							break loop;
 						}
 					}
 				}
