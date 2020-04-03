@@ -101,6 +101,9 @@ public class Game {
 				} else {
 					room = room.getExit();
 				}
+			} else {
+				System.out.println("Wrong choice! You loose 10 health!");
+				player.addHealth(-10);
 			}
 
 			room.visit(player);
