@@ -3,11 +3,11 @@ package shop.order;
 public class OrderItem {
 	String productId;
 	String name;
-	String quantity;
+	int quantity;
 	double price;
 	int vat;
 
-	public OrderItem(String productId, String name, String quantity, double price, int vat) {
+	public OrderItem(String productId, String name, int quantity, double price, int vat) {
 		super();
 		this.productId = productId;
 		this.name = name;
@@ -32,11 +32,11 @@ public class OrderItem {
 		this.name = name;
 	}
 
-	public String getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(String quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
@@ -54,6 +54,12 @@ public class OrderItem {
 
 	public void setVat(int vat) {
 		this.vat = vat;
+	}
+
+	@Override
+	public String toString() {
+		return "OrderItem [productId=" + productId + ", name=" + name + ", quantity=" + quantity + ", price=" + price
+				+ ", vat=" + vat + "]";
 	}
 
 }

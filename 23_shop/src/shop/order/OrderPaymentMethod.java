@@ -36,4 +36,9 @@ public class OrderPaymentMethod {
 		this.bankName = bankName;
 	}
 
+	@Override
+	public String toString() {
+		return "OrderPaymentMethod [iban=" + iban + ", bic=" + bic + ", bankName=" + bankName + "]";
+	}
+
 }

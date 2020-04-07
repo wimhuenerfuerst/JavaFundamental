@@ -46,4 +46,9 @@ public class OrderAddress {
 		this.country = country;
 	}
 
+	@Override
+	public String toString() {
+		return "OrderAddress [street=" + street + ", zip=" + zip + ", place=" + place + ", country=" + country + "]";
+	}
+
 }
