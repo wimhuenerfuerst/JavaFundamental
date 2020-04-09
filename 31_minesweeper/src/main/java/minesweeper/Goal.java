@@ -1,15 +1,14 @@
 package minesweeper;
 
-public class NoMine implements Field {
+public class Goal implements Field {
 
 	@Override
 	public void check(Player player) {
-		// nothing
+		player.won();
 	}
 
 	@Override
 	public String getToken() {
-		return " ";
+		return "O";
 	}
-
 }

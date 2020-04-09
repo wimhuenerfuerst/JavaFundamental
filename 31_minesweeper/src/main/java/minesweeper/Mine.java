@@ -7,4 +7,9 @@ public class Mine implements Field {
 		player.boom();
 	}
 
+	@Override
+	public String getToken() {
+		return "X";
+	}
+
 }
