@@ -1,5 +1,7 @@
 package reflection;
 
+import java.io.ObjectInputStream.GetField;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -43,6 +45,18 @@ public class MyClass {
 				
 				System.out.println("num " + myAnnotation.num());
 				System.out.println("num2 " + myAnnotation.num2());
+			}
+			
+			for (Annotation anno :field.getAnnotations()) {
+				if(anno instanceof MyAnnotation) {
+					MyAnnotation myAnnotation = (MyAnnotation) anno;
+					
+					System.out.println(myAnnotation);
+					System.out.println("value " + myAnnotation.value());
+					
+					System.out.println("num " + myAnnotation.num());
+					System.out.println("num2 " + myAnnotation.num2());
+				}
 			}
 		}
 
