@@ -9,4 +9,6 @@ import java.lang.annotation.Target;
 @Target({ ElementType.METHOD, ElementType.FIELD })
 public @interface MyAnnotation {
 	String value();
+	int num();
+	int num2() default 100;
 }
