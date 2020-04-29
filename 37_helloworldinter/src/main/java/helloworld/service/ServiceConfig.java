@@ -21,12 +21,7 @@ public class ServiceConfig {
 
 	@Bean
 	public HelloWorldService properties(@Value("${text}") final String text) {
-		return new HelloWorldService() {
-
-			public void helloWorld() {
-				System.out.println(text);
-			}
-		};
+		return () -> System.out.println(text);
 	}
 
 }
