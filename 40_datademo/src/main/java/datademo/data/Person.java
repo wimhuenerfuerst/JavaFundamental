@@ -17,7 +17,7 @@ public class Person {
 
 	@Id
 	@GeneratedValue
-	long id;
+	Long id;
 
 	String firstname;
 
@@ -48,11 +48,11 @@ public class Person {
 		this.addresses = addresses;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

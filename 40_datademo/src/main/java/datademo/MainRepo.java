@@ -54,38 +54,46 @@ public class MainRepo {
 		}
 
 		System.out.println(personRepository.myNativeQuery());
-		
+
 		System.out.println(personRepository.findByLastname("assdfsdfsd").isPresent());
 	}
-	
+
 	@Transactional
 	public void aufpassen() {
 		Person parent = new Person();
 
 		parent.setFirstname("Test");
 		parent.setLastname("TestLast");
-		parent.setBirth(LocalDate.now());	
-		
-		personRepository.save(parent);		
-		
+		parent.setBirth(LocalDate.now());
+
+		personRepository.save(parent);
+
 		Person person = new Person();
 
 		person.setFirstname("Test");
 		person.setLastname("TestLast");
 		person.setBirth(LocalDate.now());
 		person.setParent(parent);
-		
+
 		Address address = new Address();
-		
+
 		address.setCity("FFM");
 		address.setStreet("mystreet");
 		address.setZip("12345");
-		
+
+		person.getAddresses().add(address);
+
+		address = new Address();
+
+		address.setCity("FFM");
+		address.setStreet("mystreet");
+		address.setZip("12345");
+
 		person.getAddresses().add(address);
 
 		personRepository.save(person);
-		
-		System.out.println(personRepository.findById(person.getId()));		
+
+		System.out.println(personRepository.findById(person.getId()));
 	}
 
 	public static void main(String[] args) {

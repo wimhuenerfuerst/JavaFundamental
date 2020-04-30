@@ -9,16 +9,16 @@ public class Address {
 
 	@Id
 	@GeneratedValue
-	long id;
+	Long id;
 	String street;
 	String city;
 	String zip;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
