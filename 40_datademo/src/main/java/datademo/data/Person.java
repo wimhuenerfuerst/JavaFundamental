@@ -1,10 +1,16 @@
 package datademo.data;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Person {
@@ -18,6 +24,29 @@ public class Person {
 	String lastname;
 
 	LocalDate birth;
+
+	@OneToOne
+	Person parent;
+
+	public Person getParent() {
+		return parent;
+	}
+
+	public void setParent(Person parent) {
+		this.parent = parent;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "person_id")
+	Set<Address> addresses = new HashSet<Address>();
+
+	public Set<Address> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(Set<Address> addresses) {
+		this.addresses = addresses;
+	}
 
 	public long getId() {
 		return id;
