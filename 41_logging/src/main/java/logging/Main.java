@@ -13,6 +13,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		LOGGER.info("Hallo Welt Main");
+		LOGGER.warn("Hallo Welt Main");
+		LOGGER.error("Hallo Welt Main");
 		
 		MainA.main(args);
 		MainB.main(args);
