@@ -2,6 +2,8 @@ package moviedb;
 
 import javax.transaction.Transactional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
@@ -12,6 +14,8 @@ import moviedb.data.MovieRepo;
 
 @Component
 public class Main {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
 	@Autowired
 	MovieRepo movieRepo;

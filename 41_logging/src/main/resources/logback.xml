@@ -21,6 +21,14 @@
     </encoder>
  </appender>
  
+  <logger name="logging.b" level="DEBUG"/> 
+  
+  <logger name="org.springframework" level="ERROR"/> 
+ 
+ <logger name="logging.a.MainA" level="INFO" additivity="false">
+ 	<appender-ref ref="STDOUT" />
+ </logger>
+
   <root level="info">
     <appender-ref ref="STDOUT" />
     <appender-ref ref="FILE" />

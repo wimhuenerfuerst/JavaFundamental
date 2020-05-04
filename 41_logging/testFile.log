@@ -1,0 +1,43 @@
+96   [main] INFO  logging.Main - Hallo Welt Main
+98   [main] INFO  logging.a.MainA - Hallo Welt Main A
+98   [main] INFO  logging.b.MainB - Hallo Welt Main B
+98   [main] INFO  logging.Main - Hallo Welt Main
+100  [main] INFO  logging.a.MainA - Hallo Welt Main A
+100  [main] INFO  logging.b.MainB - Hallo Welt Main B
+103  [main] INFO  logging.Main - Hallo Welt Main
+104  [main] INFO  logging.a.MainA - Hallo Welt Main A
+105  [main] INFO  logging.b.MainB - Hallo Welt Main B
+127  [main] INFO  logging.Main - Hallo Welt Main
+130  [main] INFO  logging.b.MainB - Hallo Welt Main B
+110  [main] INFO  logging.Main - Hallo Welt Main
+112  [main] INFO  logging.a.MainA - Hallo Welt Main A
+112  [main] INFO  logging.b.MainB - Hallo Welt Main B
+108  [main] INFO  logging.Main - Hallo Welt Main
+112  [main] INFO  logging.b.MainB - Hallo Welt Main B
+127  [main] INFO  logging.Main - Hallo Welt Main
+128  [main] INFO  logging.b.MainB - Hallo Welt Main B
+107  [main] INFO  logging.Main - Hallo Welt Main
+109  [main] INFO  logging.b.MainB - Hallo Welt Main B
+110  [main] INFO  logging.b.MainB - Hallo Welt Main B
+98   [main] INFO  logging.Main - Hallo Welt Main
+100  [main] INFO  logging.b.MainB - Hallo Welt Main B
+131  [main] INFO  logging.Main - Hallo Welt Main
+134  [main] INFO  logging.b.MainB - Hallo Welt Main B
+114  [main] INFO  logging.Main - Hallo Welt Main
+117  [main] INFO  logging.b.MainB - Hallo Welt Main B
+117  [main] DEBUG logging.b.MainB - Hallo Welt debug Main B
+116  [main] INFO  logging.Main - Hallo Welt Main
+118  [main] INFO  logging.b.MainB - Hallo Welt Main B
+116  [main] INFO  logging.Main - Hallo Welt Main
+118  [main] INFO  logging.b.MainB - Hallo Welt Main B
+113  [main] INFO  logging.Main - Hallo Welt Main
+114  [main] INFO  logging.b.MainB - Hallo Welt Main B
+114  [main] DEBUG logging.b.MainB - Hallo Welt debug Main B
+105  [main] INFO  logging.Main - Hallo Welt Main
+107  [main] INFO  logging.b.MainB - Hallo Welt Main B
+168  [main] DEBUG logging.b.MainB - Hallo Welt debug Main B
+114  [main] INFO  logging.Main - Hallo Welt Main
+116  [main] INFO  logging.b.MainB - Hallo Welt Main B
+116  [main] DEBUG logging.b.MainB - Hallo Welt debug Main B
+116  [main] INFO  logging.b.MainB2 - Hallo Welt Main B2
+116  [main] DEBUG logging.b.MainB2 - Hallo Welt debug Main B2
