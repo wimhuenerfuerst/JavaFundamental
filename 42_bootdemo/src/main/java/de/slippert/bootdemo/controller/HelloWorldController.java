@@ -3,6 +3,7 @@ package de.slippert.bootdemo.controller;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -30,13 +30,6 @@ public class HelloWorldController {
 
 	@Autowired
 	UserRepo userRepo;
-
-	@GetMapping(value = "/hello")
-	// @RequestMapping(path = "/hello", method = RequestMethod.GET)
-	public String hello(@RequestParam(value = "name1", required = false) String name1,
-			@RequestParam(value = "name2", required = false) String name2) {
-		return String.format("Hello %s, %s!", name1, name2);
-	}
 
 	@PostMapping(value = "/users")
 	public ResponseEntity<Void> createUser(@RequestBody UserDto userDto, HttpServletRequest httpServletRequest) {
@@ -65,30 +58,47 @@ public class HelloWorldController {
 	@GetMapping("/users/{id}")
 	public ResponseEntity<UserDto> getUser(@PathVariable(value = "id") long id) {
 
-		UserDto userDto = UserDtoMapper.mapUserWithoutPassword(userRepo.findById(id).get());
+		Optional<User> optional = userRepo.findById(id);
 
-		return ResponseEntity.ok(userDto);
+		if (optional.isPresent()) {
+			UserDto userDto = UserDtoMapper.mapUserWithoutPassword(optional.get());
+			return ResponseEntity.ok(userDto);
+		}
+
+		return ResponseEntity.notFound().build();
 	}
 
 	@DeleteMapping("/users/{id}")
 	public ResponseEntity<Object> deleteUser(@PathVariable(value = "id") long id) {
-		User user = userRepo.findById(id).get();
-		userRepo.delete(user);
-		
-		return ResponseEntity.noContent().build();
+
+		Optional<User> optional = userRepo.findById(id);
+
+		if (optional.isPresent()) {
+			User user = optional.get();
+			userRepo.delete(user);
+			return ResponseEntity.noContent().build();
+		}
+
+		return ResponseEntity.notFound().build();
 	}
 
 	@PutMapping(value = "/users/{id}")
 	public ResponseEntity<UserDto> updateUser(@PathVariable(value = "id") long id, @RequestBody UserDto userDto) {
 
-		User user = userRepo.findById(id).get();
+		Optional<User> optional = userRepo.findById(id);
+		if (optional.isPresent()) {
 
-		user.setFirstname(userDto.getFirstname());
-		user.setLastname(userDto.getLastname());
-		user.setPassword(userDto.getPassword());
+			User user = optional.get();
 
-		userRepo.save(user);
+			user.setFirstname(userDto.getFirstname());
+			user.setLastname(userDto.getLastname());
+			user.setPassword(userDto.getPassword());
 
-		return ResponseEntity.ok(UserDtoMapper.mapUser(user));
+			userRepo.save(user);
+
+			return ResponseEntity.ok(UserDtoMapper.mapUser(user));
+		}
+
+		return ResponseEntity.notFound().build();
 	}
 }
