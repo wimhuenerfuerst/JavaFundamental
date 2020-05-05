@@ -60,12 +60,9 @@ public class HelloWorldController {
 
 		Optional<User> optional = userRepo.findById(id);
 
-		if (optional.isPresent()) {
-			UserDto userDto = UserDtoMapper.mapUserWithoutPassword(optional.get());
-			return ResponseEntity.ok(userDto);
-		}
-
-		return ResponseEntity.notFound().build();
+		return optional.map(UserDtoMapper::mapUserWithoutPassword)
+				.map(ResponseEntity::ok)
+				.orElse(ResponseEntity.notFound().build());
 	}
 
 	@DeleteMapping("/users/{id}")
