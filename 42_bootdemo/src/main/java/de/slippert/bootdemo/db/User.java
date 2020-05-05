@@ -10,8 +10,19 @@ public class User {
 	@Id
 	@GeneratedValue
 	long id;
+
 	String firstname;
 	String lastname;
+
+	String password;
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	public long getId() {
 		return id;
@@ -71,6 +82,6 @@ public class User {
 		} else if (!lastname.equals(other.lastname))
 			return false;
 		return true;
-	}	
+	}
 
 }
