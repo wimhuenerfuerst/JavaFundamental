@@ -7,6 +7,8 @@ import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,6 +29,8 @@ import de.slippert.bootdemo.db.UserRepo;
 @RestController
 @RequestMapping("/controller1")
 public class HelloWorldController {
+	
+	public static final Logger LOGGER = LoggerFactory.getLogger(HelloWorldController.class);
 
 	@Autowired
 	UserRepo userRepo;
@@ -59,10 +63,12 @@ public class HelloWorldController {
 	public ResponseEntity<UserDto> getUser(@PathVariable(value = "id") long id) {
 
 		Optional<User> optional = userRepo.findById(id);
+		
+		throw new RuntimeException("Test");
 
-		return optional.map(UserDtoMapper::mapUserWithoutPassword)
+		/*return optional.map(UserDtoMapper::mapUserWithoutPassword)
 				.map(ResponseEntity::ok)
-				.orElse(ResponseEntity.notFound().build());
+				.orElse(ResponseEntity.notFound().build());*/
 	}
 
 	@DeleteMapping("/users/{id}")
