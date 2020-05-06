@@ -29,7 +29,7 @@ import de.slippert.bootdemo.db.UserRepo;
 @RestController
 @RequestMapping("/controller1")
 public class HelloWorldController {
-	
+
 	public static final Logger LOGGER = LoggerFactory.getLogger(HelloWorldController.class);
 
 	@Autowired
@@ -63,12 +63,9 @@ public class HelloWorldController {
 	public ResponseEntity<UserDto> getUser(@PathVariable(value = "id") long id) {
 
 		Optional<User> optional = userRepo.findById(id);
-		
-		throw new RuntimeException("Test");
 
-		/*return optional.map(UserDtoMapper::mapUserWithoutPassword)
-				.map(ResponseEntity::ok)
-				.orElse(ResponseEntity.notFound().build());*/
+		return optional.map(UserDtoMapper::mapUserWithoutPassword).map(ResponseEntity::ok)
+				.orElse(ResponseEntity.notFound().build());
 	}
 
 	@DeleteMapping("/users/{id}")
